@@ -8,3 +8,7 @@
 //
 //    ant.mkdir(dir:"${basedir}/grails-app/jobs")
 //
+
+// Copy the ESAPI properties file to the conf directory.
+//Ant.copy(file:"${pluginBasedir}/grails-app/conf/ESAPI.properties",
+//         todir:"${basedir}/grails-app/conf")

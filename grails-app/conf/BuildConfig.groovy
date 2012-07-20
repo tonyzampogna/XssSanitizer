@@ -5,33 +5,55 @@ grails.project.target.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.dependency.resolution = {
-    // inherit Grails' default dependencies
-    inherits("global") {
-        // uncomment to disable ehcache
-        // excludes 'ehcache'
-    }
-    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
-    repositories {
-        grailsCentral()
-        // uncomment the below to enable remote dependency resolution
-        // from public Maven repositories
-        //mavenCentral()
-        //mavenLocal()
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
-    }
-    dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+	// inherit Grails' default dependencies
+	inherits("global") {
+		// uncomment to disable ehcache
+		// excludes 'ehcache'
+	}
+	log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+	repositories {
+		grailsCentral()
+		// uncomment the below to enable remote dependency resolution
+		// from public Maven repositories
+		mavenCentral()
+		//mavenLocal()
+		//mavenRepo "http://snapshots.repository.codehaus.org"
+		//mavenRepo "http://repository.codehaus.org"
+		//mavenRepo "http://download.java.net/maven/2/"
+		//mavenRepo "http://repository.jboss.com/maven2/"
+	}
+	dependencies {
+		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.5'
-    }
+		// runtime 'mysql:mysql-connector-java:5.1.5'
+//		runtime('org.owasp.esapi:esapi:2.0GA') {}
+//		runtime('org.owasp.esapi:esapi:2.0.1') {
+//			//excludes "commons-logging", "xml-apis", "groovy", "xerces"
+//			excludes "groovy",
+//					"commons-beanutils",
+//					"commons-beanutils-core",
+//					"commons-codec",
+//					"commons-collections",
+//					"commons-configuration",
+//					"commons-digester",
+//					"commons-fileupload",
+//					"commons-httpclient",
+//					"commons-lang",
+//					"commons-httpclient",
+//					"commons-logging",
+//					"xml-apis",
+//					"xml-apis-ext",
+//					"jdom"
+//		}
+//		runtime('org.owasp.antisamy:antisamy:1.4.4') {
+//			excludes "xml-apis"
+//		}
+	}
 
-    plugins {
-        build(":tomcat:$grailsVersion",
-              ":release:1.0.0") {
-            export = false
-        }
-    }
+	plugins {
+		build(":tomcat:$grailsVersion",
+				":release:1.0.0") {
+			export = false
+		}
+	}
 }

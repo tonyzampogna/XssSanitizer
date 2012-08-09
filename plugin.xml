@@ -1,0 +1,25 @@
+<plugin name='xss-sanitizer' version='0.1' grailsVersion='2.0 &gt; *'>
+  <author>Tony Zampogna</author>
+  <authorEmail>tony.zampogna@gmail.com</authorEmail>
+  <title>Xss Sanitizer Plugin</title>
+  <description>This plugin adds filters that parse every request parameter and excludes
+any possible XSS that has been injected.
+</description>
+  <documentation>http://grails.org/plugin/xss-sanitizer</documentation>
+  <type>XssSanitizerGrailsPlugin</type>
+  <resources>
+    <resource>filters.XssSanitizerFilters</resource>
+    <resource>org.tonyzampogna.xss.sanitizer.controller.XssSanitizerController</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

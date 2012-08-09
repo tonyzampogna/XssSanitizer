@@ -16,4 +16,8 @@ class XssSanitizerController {
 	def test3() {
 		redirect(uri: "/?value=<script>alert('test')</script>")
 	}
+
+	def test4() {
+		redirect(uri: "/?value=%27%22%3E%3Ciframe+src%3Dhttp%3A%2F%2Fdemo.testfire.net%2Fphishing.html%3E")
+	}
 }

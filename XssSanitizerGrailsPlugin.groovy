@@ -12,13 +12,13 @@ class XssSanitizerGrailsPlugin {
 			"grails-app/views/error.gsp"
 	]
 
-	// TODO Fill in these fields
 	def title = "Xss Sanitizer Plugin" // Headline display name of the plugin
 	def author = "Tony Zampogna"
 	def authorEmail = "tony.zampogna@gmail.com"
 	def description = '''\
-This plugin adds filters that parse every request parameter and excludes
-any possible XSS that has been injected.
+Grails plugin for sanitizing XSS from the user input.
+
+This plugin uses OWASP ESAPI library to sanitize request parameters. This reduces the risk of dangerous XSS request parameters possibly being rendered on the client.
 '''
 
 	// URL to the plugin's documentation
@@ -34,7 +34,7 @@ any possible XSS that has been injected.
 	def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GPXSSSANITIZER" ]
 
 	// Online location of the plugin's browseable source code.
-	def scm = [ url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/grails-xss-sanitizer" ]
+	def scm = [ url: "https://github.com/tonyzampogna/XssSanitizer" ]
 
 	def doWithWebDescriptor = { xml ->
 		/**

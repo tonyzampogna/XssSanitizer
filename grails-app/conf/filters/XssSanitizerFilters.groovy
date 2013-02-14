@@ -2,6 +2,7 @@ package filters
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+
 import org.tonyzampogna.xss.sanitizer.util.XssSanitizerUtil
 
 class XssSanitizerFilters {
@@ -11,12 +12,6 @@ class XssSanitizerFilters {
 			before = {
 				// Call the sanitize method for each request.
 				sanitizeParameters(params, request, response)
-			}
-			after = { Map model ->
-
-			}
-			afterView = { Exception e ->
-
 			}
 		}
 	}

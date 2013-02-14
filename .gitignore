@@ -5,9 +5,10 @@
 *Db.script
 .settings
 eclipse
-stacktrace.log
+*.log
 target
 /plugins
-/web-app/plugins
-/web-app/WEB-INF/classes
+/web-app
 out
+plugin.xml
+grails-xss-sanitizer-*.zip

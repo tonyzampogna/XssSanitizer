@@ -8,9 +8,15 @@ grails.project.dependency.resolution = {
 
 	repositories {
 		grailsCentral()
+		mavenLocal()
+		mavenCentral()
 	}
 
 	dependencies {
+		compile('org.owasp.esapi:esapi:2.0.1') {
+			excludes 'antisamy', 'bsh-core', 'commons-beanutils-core', 'commons-collections', 'commons-configuration',
+			         'commons-fileupload', 'commons-io', 'jsp-api', 'junit', 'log4j', 'servlet-api', 'xom'
+		}
 	}
 
 	plugins {

@@ -8,11 +8,11 @@ This plugin uses OWASP ESAPI library to sanitize request parameters. This reduce
 Installation
 ----------
 
-In a grails project, run the following command:
+To use the plugin, add this to your BuildConfig.groovy:
 	
 <code>
-	grails install-plugin xss-sanitizer
+	plugins {
+		runtime ":xss-sanitizer:1.2.2"
+	}
 </code>
-
-
 

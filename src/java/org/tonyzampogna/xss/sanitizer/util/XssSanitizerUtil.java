@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
  * Taken from http://ricardozuasti.com/2012/stronger-anti-cross-site-scripting-xss-filter-for-java-web-apps/
  */
 public class XssSanitizerUtil {
+
+	private static List<Pattern> XSS_INPUT_PATTERNS = new ArrayList<Pattern>();
     
-    private static List<Pattern> XSS_INPUT_PATTERNS = new ArrayList<Pattern>();
-    
-    static {
+	static {
 			// Avoid anything between script tags
 			XSS_INPUT_PATTERNS.add(Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE));
 
@@ -48,7 +48,7 @@ public class XssSanitizerUtil {
 
 			// Avoid onload= expressions
 			XSS_INPUT_PATTERNS.add(Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
-    }
+	}
 
 	/**
 	 * This method takes a string and strips out any potential script injections.
@@ -66,9 +66,9 @@ public class XssSanitizerUtil {
 			value = value.replaceAll("\0", "");
 
 			// test against known XSS input patterns
-            for(Pattern xssInputPattern : XSS_INPUT_PATTERNS) {
-                value = xssInputPattern.matcher(value).replaceAll("");
-            }
+			for (Pattern xssInputPattern : XSS_INPUT_PATTERNS) {
+				value = xssInputPattern.matcher(value).replaceAll("");
+			}
 		}
 		return value;
 	}

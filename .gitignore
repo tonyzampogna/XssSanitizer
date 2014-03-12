@@ -8,7 +8,8 @@ eclipse
 *.log
 target
 /plugins
-/web-app
+/web-app/plugins
+/web-app/WEB-INF/classes
 out
 plugin.xml
 grails-xss-sanitizer-*.zip

@@ -7,11 +7,14 @@ import org.tonyzampogna.xss.sanitizer.util.XssSanitizerUtil
 
 class XssSanitizerFilters {
 
+	def grailsApplication
+
 	def filters = {
 		all(controller: '*', action: '*') {
 			before = {
-				// Call the sanitize method for each request.
-				sanitizeParameters(params, request, response)
+				// If enabled, call the sanitize method for each request.
+				if (grailsApplication.config.xssSanitizer.enabled)
+					sanitizeParameters(params, request, response)
 			}
 		}
 	}

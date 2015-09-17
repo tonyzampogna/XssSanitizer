@@ -11,7 +11,7 @@ Installation
 To use the plugin, add this to your BuildConfig.groovy:
 	
 <code>
-	runtime ":xss-sanitizer:0.2"
+	runtime ":xss-sanitizer:0.3"
 </code>
 
 Description
@@ -23,3 +23,8 @@ Just adding this plugin to you project with the installation instructions above 
 
 There is an XssSanitizerUtil class that can also be used to strip strings out.
 
+Also, you can enable or disable it by adding a key in your Config.groovy like this:
+
+<code>
+	xssSanitizer.enabled = true
+</code>

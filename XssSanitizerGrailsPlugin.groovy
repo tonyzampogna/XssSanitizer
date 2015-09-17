@@ -1,7 +1,7 @@
 import org.tonyzampogna.xss.sanitizer.filter.XssFilter
 
 class XssSanitizerGrailsPlugin {
-	def version = "0.2"
+	def version = "0.4.0"
 	def grailsVersion = "2.0 > *"
 	def pluginExcludes = [
 			"grails-app/controllers/**",
@@ -42,4 +42,5 @@ This plugin uses OWASP ESAPI library to sanitize request parameters. This reduce
 		}
 		//println(xml)
 	}
+
 }

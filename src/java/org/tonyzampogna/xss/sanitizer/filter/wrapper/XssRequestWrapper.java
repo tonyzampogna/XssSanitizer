@@ -35,12 +35,18 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
 	@Override
 	public String getParameter(String parameter) {
 		String value = super.getParameter(parameter);
-		return XssSanitizerUtil.stripXSS(value);
+		if (value != null) {
+			value = XssSanitizerUtil.stripXSS(value);
+		}
+		return value;
 	}
 
 	@Override
 	public String getHeader(String name) {
 		String value = super.getHeader(name);
-		return XssSanitizerUtil.stripXSS(value);
+		if (value != null) {
+			value = XssSanitizerUtil.stripXSS(value);	
+		}
+		return value;
 	}
 }

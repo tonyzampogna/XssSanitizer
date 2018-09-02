@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class XssSanitizerUtil {
 
 	private static List<Pattern> XSS_INPUT_PATTERNS = new ArrayList<Pattern>();
-    
+
 	static {
 			// Avoid anything between script tags
 			XSS_INPUT_PATTERNS.add(Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE));
@@ -46,6 +46,9 @@ public class XssSanitizerUtil {
 
 			// Avoid onload= expressions
 			XSS_INPUT_PATTERNS.add(Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
+
+			// Avoid any form injection with <...form ...> ... </form ...> tag
+			XSS_INPUT_PATTERNS.add(Pattern.compile("<(.*?)form(.*?)>(.*?)</(.*?)form(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 	}
 
 	/**

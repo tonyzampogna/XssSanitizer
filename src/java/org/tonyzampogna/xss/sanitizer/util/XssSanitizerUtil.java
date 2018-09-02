@@ -19,6 +19,9 @@ public class XssSanitizerUtil {
 			// avoid iframes
 			XSS_INPUT_PATTERNS.add(Pattern.compile("<iframe(.*?)>(.*?)</iframe>", Pattern.CASE_INSENSITIVE));
 
+			// avoid inputs
+			XSS_INPUT_PATTERNS.add(Pattern.compile("<input(.*?)>(.*?)</input>", Pattern.CASE_INSENSITIVE));
+
 			// Avoid anything in a src='...' type of expression
 			XSS_INPUT_PATTERNS.add(Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 
@@ -31,6 +34,9 @@ public class XssSanitizerUtil {
 
 			// Remove any lonesome <script ...> tag
 			XSS_INPUT_PATTERNS.add(Pattern.compile("<script(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
+
+			// Remove any lonesome <input ...> tag
+			XSS_INPUT_PATTERNS.add(Pattern.compile("<input(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 
 			// Avoid eval(...) expressions
 			XSS_INPUT_PATTERNS.add(Pattern.compile("eval\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
@@ -46,6 +52,9 @@ public class XssSanitizerUtil {
 
 			// Avoid onload= expressions
 			XSS_INPUT_PATTERNS.add(Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
+			 
+			// Avoid onfocus= expressions
+			XSS_INPUT_PATTERNS.add(Pattern.compile("onfocus(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 
 			// Avoid any form injection with <...form ...> ... </form ...> tag
 			XSS_INPUT_PATTERNS.add(Pattern.compile("<(.*?)form(.*?)>(.*?)</(.*?)form(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));

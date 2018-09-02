@@ -83,4 +83,10 @@ public class XssSanitizerUtilTest {
         final String output = XssSanitizerUtil.stripXSS("<iframe src='xss.html'>xss-content</iframe>");
         assertThat(output, is(""));
     }
+
+    @Test
+    public void shouldStripOutContentOfIframeTags() {
+        final String output = XssSanitizerUtil.stripXSS("<form action=''><input id='formInjection'></form>");
+        assertThat(output, is(""));
+    }
 }

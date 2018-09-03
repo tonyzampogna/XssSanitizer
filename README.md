@@ -11,7 +11,7 @@ Installation
 To use the plugin, add this to your BuildConfig.groovy:
 	
 <code>
-	runtime ":xss-sanitizer:0.4"
+	runtime ":xss-sanitizer:0.4.1"
 </code>
 
 Description

@@ -57,7 +57,7 @@ public class XssSanitizerUtil {
 			XSS_INPUT_PATTERNS.add(Pattern.compile("onfocus(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 
 			// Avoid any form injection with <...form ...> ... </form ...> tag
-			XSS_INPUT_PATTERNS.add(Pattern.compile("<(.*?)form(.*?)>(.*?)</(.*?)form(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
+			XSS_INPUT_PATTERNS.add(Pattern.compile("<([^<>]*)form([^<>]*)>(.*?)</([^<>]*)form([^<>]*)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL));
 	}
 
 	/**

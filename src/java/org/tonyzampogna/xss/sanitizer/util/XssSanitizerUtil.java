@@ -82,6 +82,10 @@ public class XssSanitizerUtil {
 				for (Pattern xssInputPattern : XSS_INPUT_PATTERNS) {
 					value = xssInputPattern.matcher(value).replaceAll("");
 				}
+				
+				// If the encoded incoming value is not malicious, then reverting it to the original text
+				// this is required for text containing &PI or &XI which is getting evaluated to the respective symbol.
+				
 			}
 
 		} catch (Exception ex) {

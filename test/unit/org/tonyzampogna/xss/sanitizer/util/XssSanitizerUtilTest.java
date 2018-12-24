@@ -85,8 +85,40 @@ public class XssSanitizerUtilTest {
     }
 
     @Test
-    public void shouldStripOutContentOfIframeTags() {
+    public void shouldStripOutContentOfFormTags() {
         final String output = XssSanitizerUtil.stripXSS("<form action=''><input id='formInjection'></form>");
         assertThat(output, is(""));
+    }
+
+    @Test
+    public void shouldStripOutContentOfScriptTagsWithBackslash() {
+        final String output = XssSanitizerUtil.stripXSS("valid-content<script>xss-content<\\/script> more-valid-content");
+        assertThat(output, is("valid-content more-valid-content"));
+    }
+
+    @Test
+    public void shouldStripOutContentOfIframeTagsWithMultipleBackslash() {
+        final String output = XssSanitizerUtil.stripXSS("valid-content<iframe>xss-content<\\\\/iframe> more-valid-content");
+        assertThat(output, is("valid-content more-valid-content"));
+    }
+
+    @Test
+    public void shouldStripOutContentOfInputTagsWithBackslash() {
+        final String output = XssSanitizerUtil.stripXSS("valid-content<input>xss-content<\\/input> more-valid-content");
+        assertThat(output, is("valid-content more-valid-content"));
+    }
+
+    @Test
+    public void shouldStripOutTrailingScriptTagWithBackslash() {
+        final String output = XssSanitizerUtil.stripXSS("<\\/script>valid-content");
+        assertThat(output, is("valid-content"));
+    }
+
+    @Test
+    public void shouldNotStripTagAttributeContainingForm() {
+        final String input = "<self-closing-tag expression=\"payload.Data.Initiation.RemittanceInformation\"  gen=\"jag\"/>" +
+                "<self-closing-tag expression=\"payload.Data.Initiation.RemittanceInformation.Unstructured\"  gen=\"jag\"/>";
+        final String output = XssSanitizerUtil.stripXSS(input);
+        assertThat(output, is(input));
     }
 }
